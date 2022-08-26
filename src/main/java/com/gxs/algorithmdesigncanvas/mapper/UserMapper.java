@@ -1,25 +1,27 @@
 package com.gxs.algorithmdesigncanvas.mapper;
 
 import com.gxs.algorithmdesigncanvas.entity.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * FileName: UserMapper
  * author: gxs
  * Date: 2022/8/23  13:29
  */
+@Mapper
 public interface UserMapper {
+    static Map<String, User> userMap = new HashMap<>();
     @Select("SELECT * FROM user")
     List<User> getAll();
 
     @Select("SELECT * FROM user WHERE userId = #{userId}")
     User getOne(Integer userId);
-
+    @Select("SELECT * FROM user WHERE userName = #{userName}")
+    User getOneByName(String userName);
     @Insert("INSERT INTO user(user_id,user_name,password) VALUES(#{userID}, #{userName}, #{password})")
     void insert(User user);
 
