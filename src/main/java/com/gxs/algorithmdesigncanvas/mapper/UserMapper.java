@@ -20,9 +20,9 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE userId = #{userId}")
     User getOne(Integer userId);
-    @Select("SELECT * FROM user WHERE userName = #{userName}")
+    @Select("SELECT * FROM user WHERE user_name = #{userName}")
     User getOneByName(String userName);
-    @Insert("INSERT INTO user(user_id,user_name,password) VALUES(#{userID}, #{userName}, #{password})")
+    @Insert("INSERT INTO user(user_name,password) VALUES(#{userName}, #{password})")
     void insert(User user);
 
     @Update("UPDATE user SET user_name=#{userName},password=#{password} WHERE user_id =#{userId}")
