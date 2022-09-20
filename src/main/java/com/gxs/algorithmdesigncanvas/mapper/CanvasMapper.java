@@ -1,10 +1,7 @@
 package com.gxs.algorithmdesigncanvas.mapper;
 
 import com.gxs.algorithmdesigncanvas.entity.Canvas;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,13 +27,22 @@ public interface CanvasMapper {
     @Select("SELECT * FROM canvas WHERE canvas_id = #{canvasId}")
     Canvas getOne(Integer canvasId);
 
+    @Select("SELECT * FROM canvas WHERE canvas_name = #{canvasName}")
+    List<Canvas> getOneByName(String canvasName);
+
     @Insert("INSERT INTO canvas(canvas_name,constraints,ideas,complexity,code,tests,finished) VALUES(#{canvasName}, #{constraints}, #{ideas}" +
             ", #{complexity}, #{code}, #{tests}, #{finished})")
-    void insert(Canvas user);
+    void insert(Canvas canvas);
 
     @Update("UPDATE canvas SET user_name=#{userName},password=#{password} WHERE user_id =#{userId}")
-    void update(Canvas user);
+    void update(Canvas canvas);
 
     @Delete("DELETE FROM canvas WHERE canvas_id =#{canvasID}")
-    void delete(Integer userId);
+    void deleteById(Integer canvasId);
+
+    @Delete("DELETE FROM canvas WHERE canvas_name =#{canvasName}")
+    void deleteByName(String canvasName);
+
+    @Update("UPDATE canvas SET ideas =#{canvasIdeas} WHERE canvas_name =#{canvasName}")
+    void updateIdeasByName(@Param("canvasName") String canvasName, @Param("canvasIdeas") String canvasIdeas);
 }
