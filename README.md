@@ -22,6 +22,7 @@
  #### 系统要采用的架构
    
    预计先实现单体的分层模型，之后可以实现微服务模型。
+   ![image](https://user-images.githubusercontent.com/51054870/192710772-9bf3c5d0-48e9-4e17-afcf-555314b2c007.png)
  #### 技术栈
    
    基于SpingBoot， 数据库MySQL， ES作为搜索引擎（也考虑solr），推荐算法目前不太清楚怎么实现。
