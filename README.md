@@ -1,13 +1,17 @@
 # 工程简介
+<<<<<<< HEAD
 
 登录测试
 post方法测试，APIfox和postman的测试
 
 =======
+=======
+>>>>>>> master
 ## 登录模块
 可以根据数据库中已经录入的用户身份进行登录
 TODO: 完善界面，完成登录密码加密，添加各种登录方式
 ## 主页显示用户信息模块
+<<<<<<< HEAD
 > 6c94cc7 (修改canvasController)
 
 # 开发计划
@@ -35,6 +39,8 @@ TODO: 完善界面，完成登录密码加密，添加各种登录方式
 ## 问题描述
 ### controller中API如何定义 REST 风格
 ### HttpServletRequest 这个类的常用方法以及如何通过请求参数获取keywords数组
+=======
+>>>>>>> master
 
 # 延伸阅读
 
