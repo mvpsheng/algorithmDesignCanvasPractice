@@ -34,11 +34,29 @@
  
  ### 面向对象的API设计（细节设计）
  #### UI设计
+ 
+    UI中包含三大元素模块：
+    
+    > canvas展示模块
+    > 搜索引擎模块
+    > canvas编辑模块
+    
  #### 数据库设计
  
  工具： PowerDesigner
  
  方法： 用户故事展开，找到其中的数据模型及其之间的关系
+ 实体：
+ ##### 用户(User)
+ 
+    属性： id、 userName、 password 
+ ##### 图表(Canvas)
+    属性： cid（canvasid）、 uid（用户id）、 canvasName（问题名称）、 description（问题描述）、 constraints（约束条件）、 ideas（解决思路）、 complexity（复杂度）、 code（核心代码）、 test（测试样例）、 solution（总结）
+    
+    目前一共两个实体，两个实体之间的关系是用户对图表，1对多，两个实体之间通过id匹配关系。
+    
+    后续： 后续可以加入user实体属性用来标识 用户与其他用户之间的关系，可以follower等。
+           一个canvas也可以被别人收藏，从而获取别人的canvas，方便用户进行参考和使用。
  #### 模型、模块设计
     
     基于关键词的搜索引擎模块
