@@ -30,8 +30,8 @@ public interface CanvasMapper {
     @Select("SELECT * FROM canvas WHERE canvas_name = #{canvasName}")
     List<Canvas> getOneByName(String canvasName);
 
-    @Insert("INSERT INTO canvas(canvas_name,constraints,ideas,complexity,code,tests,finished) VALUES(#{canvasName}, #{constraints}, #{ideas}" +
-            ", #{complexity}, #{code}, #{tests}, #{finished})")
+    @Insert("INSERT INTO canvas(canvas_name, description, constraints, ideas, complexity, code, tests, conclusion) VALUES(#{canvasName}, #{description}, #{constraints}, #{ideas}" +
+            ", #{complexity}, #{code}, #{tests}, #{conclusion})")
     void insert(Canvas canvas);
 
     @Update("UPDATE canvas SET user_name=#{userName},password=#{password} WHERE user_id =#{userId}")

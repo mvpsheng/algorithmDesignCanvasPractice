@@ -23,5 +23,6 @@ public class RecommendedSystemController {
     @GetMapping("/recommand")
     public List<Canvas> recommend() {
         return canvasMapper.getAllCanvas();
+
     }
 }

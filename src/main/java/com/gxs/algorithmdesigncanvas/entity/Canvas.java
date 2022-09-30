@@ -14,13 +14,26 @@ import lombok.*;
 @Builder
 public class Canvas {
     private Integer canvasID;
+    private Integer uID;
     private String canvasName;
+    private String description;
     private String constraints;
     private String ideas;
     private String complexity;
     private String code;
     private String tests;
-    private boolean finished;
+    private String conclusion;
+
+    public Canvas(String canvasName, String description, String constraints, String ideas, String complexity, String code, String tests, String conclusion) {
+        this.canvasName = canvasName;
+        this.description = description;
+        this.constraints = constraints;
+        this.ideas = ideas;
+        this.complexity = complexity;
+        this.code = code;
+        this.tests = tests;
+        this.conclusion = conclusion;
+    }
 }
 /**
  * CREATE TABLE IF NOT EXISTS `canvas`(
