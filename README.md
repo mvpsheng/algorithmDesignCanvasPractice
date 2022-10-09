@@ -44,9 +44,31 @@ TODO: 完善界面，完成登录密码加密，添加各种登录方式
 
 ## 问题描述
 ### controller中API如何定义 REST 风格
+> URL仅仅是标识资源的路劲，而具体的行为由HTTP方法来指定。
+> （路径代表资源，方法代表资源的操作。）
+> 
+> 对于一个资源，比如一个团队实体，那么删除，更新和查询一个团队成员的API请求参数只需要带上对应的ID即可.
+> 通过不同的HTTP请求方法会对应调用对应的后端方法。 
+> 如/team/1 HTTP.Method = get  意思是请求获取ID=1对应的成员， 对于/team/1 HTTP.Method=delete 则是删除对应的ID=1的成员。
 ### HttpServletRequest 这个类的常用方法以及如何通过请求参数获取keywords数组
+（这个方法准备用于推荐系统）
 ### controller中的方法返回值如何选择？
 ### update方法在controller中一般如何用？
+> 解决方法：
+> 学习SpringMVC相关的注解
+> 
+>@RestController
+@ResponseBody
+@RequestBody
+@RequestMapping
+@GetMapping
+@PostMapping
+@PutMapping
+@DeleteMapping
+@PathVariable
+
+
+
 
 =======
 > master
