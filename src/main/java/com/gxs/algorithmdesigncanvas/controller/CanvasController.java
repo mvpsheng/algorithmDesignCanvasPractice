@@ -49,18 +49,18 @@ public class CanvasController {
 //        System.out.println("canvasListdelete " + canvasName);
         canvasMapper.deleteByName(canvasName);
     }
-    @PostMapping(value = "/addCanvas")
-    public void addCanvasList(HttpServletRequest request) {
-        String canvasName = request.getParameter("canvasName");
-        String description = request.getParameter("description");
-        String constraints = request.getParameter("constraints");
-        String ideas = request.getParameter("ideas");
-        String complexity = request.getParameter("complexity");
-        String code = request.getParameter("code");
-        String tests = request.getParameter("tests");
-        String conclusion = request.getParameter("conclusion");
-        Canvas canvas = new Canvas(canvasName, description, constraints, ideas, complexity
-        ,code, tests, conclusion);
+    @PostMapping
+    public void addCanvas(@RequestBody Canvas canvas) {
+//        String canvasName = request.getParameter("canvasName");
+//        String description = request.getParameter("description");
+//        String constraints = request.getParameter("constraints");
+//        String ideas = request.getParameter("ideas");
+//        String complexity = request.getParameter("complexity");
+//        String code = request.getParameter("code");
+//        String tests = request.getParameter("tests");
+//        String conclusion = request.getParameter("conclusion");
+//        Canvas canvas = new Canvas(canvasName, description, constraints, ideas, complexity
+//        ,code, tests, conclusion);
         canvasMapper.insert(canvas);
     }
 
