@@ -20,6 +20,11 @@ public class RecommendedSystemController {
     @Autowired
     CanvasMapper canvasMapper;
 
+/**
+ * 通过获取用户搜索引擎的keywords历史记录来进行推荐
+ * 通过 用户查看的一些canvas和自己保存提交的一些canvas的keywords来推荐
+ * 综合以上两种方法来推荐
+ * */
     @GetMapping("/recommand")
     public List<Canvas> recommend() {
         return canvasMapper.getAllCanvas();

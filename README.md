@@ -40,6 +40,7 @@ TODO: 完善界面，完成登录密码加密，添加各种登录方式
 
 > ~~然后需要修改对应的controller和mapper类~~  **currently DONE！**
 
+#### canvasController 修改为Restful API
 # 需要学习的技能
 
 ## 问题描述
