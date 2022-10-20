@@ -51,16 +51,6 @@ public class CanvasController {
     }
     @PostMapping
     public void addCanvas(@RequestBody Canvas canvas) {
-//        String canvasName = request.getParameter("canvasName");
-//        String description = request.getParameter("description");
-//        String constraints = request.getParameter("constraints");
-//        String ideas = request.getParameter("ideas");
-//        String complexity = request.getParameter("complexity");
-//        String code = request.getParameter("code");
-//        String tests = request.getParameter("tests");
-//        String conclusion = request.getParameter("conclusion");
-//        Canvas canvas = new Canvas(canvasName, description, constraints, ideas, complexity
-//        ,code, tests, conclusion);
         canvasMapper.insert(canvas);
     }
 
