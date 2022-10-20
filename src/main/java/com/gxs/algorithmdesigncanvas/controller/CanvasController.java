@@ -27,14 +27,14 @@ public class CanvasController {
 /**
  * 获取所有本用户的canvas
  * */
-    @GetMapping("/canvasList")
+    @GetMapping("/")
     @CrossOrigin(origins = "http://localhost:8080/canvas",allowCredentials = "true")
     public List<Canvas> getCanvasList() {
 //        counter++;
 //        System.out.println("发生了依次canvasList请求" + counter + "次");
         return canvasMapper.getAllCanvas();
     }
-    @GetMapping("/canvasByName")
+    @GetMapping("/canvasName")
     public List<Canvas> getCanvasByName(HttpServletRequest request) {
         String canvasName = request.getParameter("canvasName");
         System.out.println("发生了依次canvasList请求" + counter + "次");
@@ -43,24 +43,14 @@ public class CanvasController {
 
     }
 
-    @DeleteMapping(value = "/deleteCanvas")
-    public void deleteCanvasByName(HttpServletRequest request) {
-        String canvasName = request.getParameter("deleteCanvasName");//deleteCanvasName
+    @DeleteMapping("/{canvasName}")
+    public void deleteCanvasByName(@PathVariable String canvasName) {
+//        String canvasName = request.getParameter("deleteCanvasName");//deleteCanvasName
 //        System.out.println("canvasListdelete " + canvasName);
         canvasMapper.deleteByName(canvasName);
     }
-    @PostMapping(value = "/addCanvas")
-    public void addCanvasList(HttpServletRequest request) {
-        String canvasName = request.getParameter("canvasName");
-        String description = request.getParameter("description");
-        String constraints = request.getParameter("constraints");
-        String ideas = request.getParameter("ideas");
-        String complexity = request.getParameter("complexity");
-        String code = request.getParameter("code");
-        String tests = request.getParameter("tests");
-        String conclusion = request.getParameter("conclusion");
-        Canvas canvas = new Canvas(canvasName, description, constraints, ideas, complexity
-        ,code, tests, conclusion);
+    @PostMapping
+    public void addCanvas(@RequestBody Canvas canvas) {
         canvasMapper.insert(canvas);
     }
 
@@ -68,7 +58,7 @@ public class CanvasController {
 /**
  * TODO: 更新canvas中的各种内容
  * */
-    @GetMapping(value = "/updateCanvas")
+    @GetMapping(value = "/canvasName")
     public List<Canvas> updateCanvasByName(HttpServletRequest request) {
         String canvasName = request.getParameter("updateCanvasName");
         String canvasIdeas = request.getParameter("updateCanvasIdeas");
